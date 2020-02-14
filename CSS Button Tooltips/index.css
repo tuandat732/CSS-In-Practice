@@ -1,0 +1,125 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-image:  linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: transparent;
+    outline: none;
+    font-size: 30px;
+    transition:  .2s all;
+    box-shadow: 0px 5px 15px #000;
+    position: relative;
+    cursor: pointer;
+}
+
+
+button:nth-child(1){
+    border: 2px solid #ff0000;
+    color: #ff0000;
+}
+
+button:nth-child(2){
+    border: 2px solid #00ff00;
+    color: #00ff00;
+}
+
+button:nth-child(1):hover{
+    background: #ff0000;
+    color: #000;
+}
+
+button:nth-child(2):hover{
+    background: #00ff00;
+    color: #000;
+}
+
+
+button:hover{
+    transform: translate(0,-10px);
+    box-shadow: 0 15px 15px #000;
+}
+
+button:active{
+    /* kick chuot */
+    transform: translate(-5px,5px);
+}
+
+button::before{
+    content: attr(data-content);
+    position: absolute;
+    top:0;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 150%;
+    background:transparent;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.5s all cubic-bezier(0.68,-0.55,0.26,1.55);
+    top:0
+}
+
+button::after{
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent; 
+    /* border chia thanh 4 goc hinh vuong */
+    border-top: 8px solid #fff;
+    left: 50%;
+    transform: translate(-50%,0);
+    opacity: 0;
+    transition: 0.5s all cubic-bezier(0.68,-0.55,0.26,1.55);
+    top:0;
+}
+
+button:nth-child(1):hover::before{
+    color: #ff0000;
+}
+
+button:nth-child(2):hover::before{
+    color: #00ff00;
+}
+
+button:nth-child(1)::before{
+    border: 2px solid #ff0000;
+    color: #ff0000;
+}
+
+button:nth-child(1)::after{
+    border-top: 8px solid #ff0000;
+}
+
+button:nth-child(2)::after{
+    border-top: 8px solid #00ff00;
+}
+
+button:nth-child(2)::before{
+   border: 2px solid #00ff00;
+   color: #00ff00;
+}
+
+button:hover::before,button:hover::after{
+    opacity: 1;
+}
+
+button:hover::before{
+    top: -76%;
+}
+
+button:hover::after{
+    top: -17px;
+}
